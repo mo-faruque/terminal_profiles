@@ -2,10 +2,13 @@
 set -eux pipefail
 
 # Install Powerline for VIM.
-sudo apt install -y python3-pip
-pip3 install --user powerline-status
+sudo dnf install -y python3-pip
+python3 -m venv venv
+source venv/bin/activate
+pip install powerline-status
 sudo cp configs/.vimrc ~/.vimrc
-sudo apt install -y fonts-powerline
+#sudo zypper install -y fonts-powerline
+sudo dnf install -y powerline-fonts
 
 # Install Patched Font
 mkdir ~/.fonts
