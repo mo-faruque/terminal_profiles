@@ -1,16 +1,24 @@
+#!/bin/bash
 # Fail on any command.
-set -eux pipefail
+set -euxo pipefail
 
-# Install Powerline for VIM.
-sudo dnf install -y python3-pip
+# Ensure all required packages are installed
+sudo dnf install -y python3 python3-pip powerline-fonts fontconfig
+
+# Create and activate a virtual environment
 python3 -m venv venv
 source venv/bin/activate
-pip install powerline-status
-sudo cp configs/.vimrc ~/.vimrc
-#sudo zypper install -y fonts-powerline
-sudo dnf install -y powerline-fonts
 
-# Install Patched Font
-mkdir ~/.fonts
-sudo cp -a fonts/. ~/.fonts/
+# Install Powerline
+pip install powerline-status
+
+# Copy the VIM configuration file
+cp configs/.vimrc ~/.vimrc
+
+# Install Powerline fonts
+mkdir -p ~/.fonts
+cp -a fonts/. ~/.fonts/
 fc-cache -vf ~/.fonts/
+
+# Deactivate the virtual environment
+deactivate
