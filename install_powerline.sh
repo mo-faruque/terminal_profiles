@@ -10,6 +10,7 @@ python3 -m venv venv
 source venv/bin/activate
 
 # Install Powerline
+pip install --upgrade pip setuptools
 pip install powerline-status
 
 # Copy the VIM configuration file
@@ -22,3 +23,4 @@ fc-cache -vf ~/.fonts/
 
 # Deactivate the virtual environment
 deactivate
+echo "done"
