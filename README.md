@@ -1,4 +1,4 @@
-# Pixegami Terminal Profile
+# Pixegami Terminal Profile [forked from https://github.com/pixegami/terminal-profile]
 
 ![terminal](./terminal_screenshot.png)
 
